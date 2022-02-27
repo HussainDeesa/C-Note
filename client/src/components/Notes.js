@@ -6,15 +6,15 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from "react-router-dom";
 
-
-export const Notes = () => {
+export const Notes = (props) => {
+    props.setprogress(0)
     let navigate = useNavigate();
     const context = useContext(noteContext)
     const { notes, getallnotes, editNote } = context
     useEffect(() => {
         if (localStorage.getItem('token')) {
-
             getallnotes()
+            props.setprogress(100)
         }
         else {
             navigate('/login')
@@ -25,13 +25,20 @@ export const Notes = () => {
 
     const ref = useRef(null)
     const updateNote = (currentNote) => {
+        props.setprogress(10)
         setShow(true)
+        props.setprogress(30)
         setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag, })
+        props.setprogress(100)
+
     }
     const handleSubmit = (e) => {
+        props.setprogress(10)
         e.preventDefault()
         setShow(false)
+        props.setprogress(50)
         editNote(note.id, note.etitle, note.edescription, note.etag)
+        props.setprogress(100)
     }
 
     const handleOnChange = (e) => {

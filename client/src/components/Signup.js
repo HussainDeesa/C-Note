@@ -3,13 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { Alert } from './Alert';
 
 const Signup = (props) => {
+    props.setprogress(0)
     let navigate = useNavigate();
     const [crediantials, setCrediantials] = useState({ name: "", email: "", password: "", cpassword: "" })
 
     const handleSubmit = async (e) => {
+        props.setprogress(10)
         if (crediantials.password === crediantials.cpassword) {
             e.preventDefault();
-            const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+            props.setprogress(20)
+            const response = await fetch(`api/auth/createuser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -18,22 +21,24 @@ const Signup = (props) => {
             })
 
             const json = await response.json()
-            console.log(json);
+            props.setprogress(50)
             if (json.success) {
+                props.setprogress(70)
                 localStorage.setItem('token', json.authToken)
+                props.setprogress(100)
                 navigate('/');
             }
             else {
+                props.setprogress(100)
                 props.showAlert("*User with this email already exists")
             }
         }
         else {
+            props.setprogress(100)
             e.preventDefault()
             props.showAlert("*Password and Confirm Password are different")
         }
-
     };
-
 
     const handleOnChange = (e) => {
         setCrediantials({ ...crediantials, [e.target.name]: e.target.value })

@@ -1,3 +1,8 @@
+/* Body */
+body {
+  background-color: #001336;
+}
+
 /* Navbar */
 .navbar {
   background-color: #191a19 !important;
@@ -21,24 +26,20 @@
 }
 .btn-outline-primary {
   border-color: #d8e9a8 !important;
-  color: #d8e9a8 !important;
+  color: #fbff00 !important;
 }
 .btn-outline-primary:hover {
   color: black !important;
-  background-color: #166c85;
-  border-color: #d8e9a8 !important;
-}
-/* Body */
-body {
-  background-color: #d8e9a8;
+  background-color: #fbff00;
+  border-color: #000000 !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 /* AddNote */
 .form-template {
   color: #191a19;
-  background: #136a8a;
-  background: -webkit-linear-gradient(to right, #267871, #136a8a);
-  background: linear-gradient(to right, #267871, #136a8a);
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
   margin: auto;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.3),
     0px 30px 60px 1px rgba(0, 0, 0, 0.5);
@@ -54,6 +55,10 @@ body {
 .form-template .head .form-title {
   font-size: 2.2em;
 }
+.form-title,
+.form-label {
+  color: rgb(241, 238, 238);
+}
 .form-template .msg {
   text-align: center;
 }
@@ -68,17 +73,12 @@ body {
   font-size: 1em;
   outline: none;
   border: none;
-  background: -webkit-linear-gradient(to right, #267871, #136a8a);
-  background: linear-gradient(to right, #267871, #136a8a);
   border-bottom: 2px solid white;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 .form-label {
   margin-top: 10px;
-}
-.form-template .form .password::placeholder {
-  color: #d3d3d3;
 }
 .form-template .form .form-btn {
   background: none;
@@ -90,8 +90,9 @@ body {
   transition: 0.5s;
 }
 .form-template .form .form-btn:hover {
-  background: white;
-  color: rgb(0, 0, 0);
+  background-color: #fbff00;
+  background-image: linear-gradient(315deg, #eaff00 0%, #b8fd13 74%);
+  color: rgb(0 0 0);
   transition: 0.5s;
   box-shadow: 0px 0px 0px 3px rgb(94, 80, 80);
 }
@@ -105,19 +106,21 @@ body {
   margin-top: 25px;
 }
 .your-notes-heading {
+  text-align: center; 
   margin-top: 10px;
+  color: rgb(255, 255, 255);
 }
 .log-sig-redirect {
   margin-top: 18px;
   text-align: center;
-  color: #d3e4a4;
+  color: #fffffe;
 }
 .log-sig-redirect a {
-  color: #d3e4a4;
+  color: #ffffff;
 }
 
 /* Alert */
-.alert{
+.alert {
   height: 20px;
   padding: 0;
   margin: 0;
@@ -129,7 +132,7 @@ body {
 
 /* NoteItem */
 .noteItem .card {
-  background-color: #ffc107;
+  background-color: #fbff00;
   border-radius: 10px;
 }
 .row {
@@ -155,9 +158,6 @@ i {
 @media (max-width: 990px) {
   .form-template {
     width: 95%;
-  }
-  .your-notes-heading {
-    text-align: center;
   }
 }
 @media (max-width: 500px) {

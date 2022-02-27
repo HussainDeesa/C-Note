@@ -3,23 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { Alert } from './Alert';
 
 const Login = (props) => {
+    props.setprogress(0)
     const [crediantials, setCrediantials] = useState({ email: "", password: "" })
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
+        props.setprogress(10)
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email: crediantials.email, password: crediantials.password })
         })
+        props.setprogress(20)
         const json = await response.json()
+        props.setprogress(50)
         if (json.success) {
             localStorage.setItem('token', json.authToken);
+            props.setprogress(90)
             navigate('/');
         }
         else {
+            props.setprogress(100)
             props.showAlert("*Invalid Crediantials! Please try again");
 
         }

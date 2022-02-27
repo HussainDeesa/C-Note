@@ -1,17 +1,19 @@
 const mongoose = require('mongoose')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // const mongoURi = 'mongodb://localhost:27017/CNote?readPreference=primary&appname=MongoDB%20Compass&ssl=false'
 const username = encodeURIComponent("Hussain");
 const password = encodeURIComponent("Hussain@7860");
-const mongoURi = `mongodb+srv://${username}:${password}@cluster0.qv5zj.mongodb.net/test`
+// const mongoURi = `mongodb+srv://${username}:${password}@cluster0.qv5zj.mongodb.net/test`
+const mongoURi=`mongodb+srv://${username}:${password}@cluster0.qv5zj.mongodb.net/CNote?retryWrites=true&w=majority`
 const connectToMongo = () => {
     mongoose.connect(mongoURi, {
-    }).then(()=>{
+    }).then(() => {
         console.log('connected to mongo successfully');
-    }) .catch((e) => {
-        console.log(e,'not connected');
-      });
+    }).catch((e) => {
+        console.log(e, 'not connected');
+    });
+    
 
 }
 
