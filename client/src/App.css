@@ -1,0 +1,171 @@
+/* Navbar */
+.navbar {
+  background-color: #191a19 !important;
+}
+.navbar-brand {
+  margin-left: 0px;
+}
+.container-fluid {
+  justify-content: flex-start !important;
+}
+.nav-item {
+  margin-right: 10px;
+}
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+.log-sign {
+  position: absolute;
+  right: 10px;
+}
+.btn-outline-primary {
+  border-color: #d8e9a8 !important;
+  color: #d8e9a8 !important;
+}
+.btn-outline-primary:hover {
+  color: black !important;
+  background-color: #166c85;
+  border-color: #d8e9a8 !important;
+}
+/* Body */
+body {
+  background-color: #d8e9a8;
+}
+
+/* AddNote */
+.form-template {
+  color: #191a19;
+  background: #136a8a;
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);
+  background: linear-gradient(to right, #267871, #136a8a);
+  margin: auto;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.3),
+    0px 30px 60px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 40px;
+  width: 50%;
+}
+.form-template .head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-template .head .form-title {
+  font-size: 2.2em;
+}
+.form-template .msg {
+  text-align: center;
+}
+.form-template .form input[type="text"].text,
+.form-control,
+.form-control:focus {
+  border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: rgb(216 233 168);
+  font-size: 1em;
+  outline: none;
+  border: none;
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);
+  background: linear-gradient(to right, #267871, #136a8a);
+  border-bottom: 2px solid white;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.form-label {
+  margin-top: 10px;
+}
+.form-template .form .password::placeholder {
+  color: #d3d3d3;
+}
+.form-template .form .form-btn {
+  background: none;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 0px 0px 2px white;
+  border-radius: 3px;
+  padding: 5px 2em;
+  transition: 0.5s;
+}
+.form-template .form .form-btn:hover {
+  background: white;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+  box-shadow: 0px 0px 0px 3px rgb(94, 80, 80);
+}
+.form-template .forgot {
+  text-decoration: none;
+  color: white;
+  float: right;
+  margin-top: 10px;
+}
+.form-btn {
+  margin-top: 25px;
+}
+.your-notes-heading {
+  margin-top: 10px;
+}
+.log-sig-redirect {
+  margin-top: 18px;
+  text-align: center;
+  color: #d3e4a4;
+}
+.log-sig-redirect a {
+  color: #d3e4a4;
+}
+
+/* Alert */
+.alert{
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+/* NoteItem */
+.noteItem .card {
+  background-color: #ffc107;
+  border-radius: 10px;
+}
+.row {
+  justify-content: center;
+}
+
+/*  */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+i {
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+@media (max-width: 990px) {
+  .form-template {
+    width: 95%;
+  }
+  .your-notes-heading {
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .form-template .head .form-title {
+    font-size: 1.7em;
+  }
+  .noteItem,
+  .col-md-3 {
+    width: 85%;
+  }
+}
