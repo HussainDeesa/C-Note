@@ -1,15 +1,20 @@
 import React, { useState, useContext } from 'react'
 import noteContext from "../context/noteContext"
 
-export const AddNote = () => {
+export const AddNote = (props) => {
+    props.setprogress(0)
     const context = useContext(noteContext)
     const { addNote } = context;
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     const handleSubmit = (e) => {
+        props.setprogress(10)
         e.preventDefault()
+        props.setprogress(30)
         addNote(note.title, note.description, note.tag)
+        props.setprogress(70)
         setNote({ title: "", description: "", tag: "" })
+        props.setprogress(100)
     }
 
     const handleOnChange = (e) => {

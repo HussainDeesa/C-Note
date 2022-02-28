@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from "react-router-dom";
 
 export const Notes = (props) => {
+    const {setprogress}=props
     props.setprogress(0)
     let navigate = useNavigate();
     const context = useContext(noteContext)
@@ -54,7 +55,7 @@ export const Notes = (props) => {
     }
     return (
         <>
-            <AddNote />
+            <AddNote setprogress={setprogress} />
             <Button ref={ref} variant="primary" className='d-none'>
                 Launch demo modal
             </Button>
@@ -63,6 +64,7 @@ export const Notes = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Note</Modal.Title>
                 </Modal.Header>
+                <hr className='edit-modal-hr' />
                 <Modal.Body>
                     <form className='my-3' >
                         <div className="mb-3">
@@ -84,7 +86,7 @@ export const Notes = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button disabled={note.etitle.length < 5 || note.edescription.length < 5} onClick={handleSubmit} variant="primary" >
+                    <Button disabled={note.etitle.length < 5 || note.edescription.length < 5} onClick={handleSubmit} variant="primary" className='edit-modal-submit' >
                         Update Note
                     </Button>
                 </Modal.Footer>
@@ -93,9 +95,9 @@ export const Notes = (props) => {
                 <h3 className='your-notes-heading'>Your Notes</h3>
                 <div className='container'>
                     {notes.length === 0 && "No Notes to display!"}</div>
-                    {notes.map((note) => {
-                        return <NoteItem key={note._id} note={note} updateNote={updateNote} />
-                    })}
+                {notes.map((note) => {
+                    return <NoteItem key={note._id} note={note} updateNote={updateNote} />
+                })}
             </div>
         </>
     )
