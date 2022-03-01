@@ -18,8 +18,10 @@ export const AddNote = (props) => {
         if (note.title.length === 0 || note.description.length === 0) {
             props.showAlert("Title or description cannot be empty")
             props.setprogress(100)
-            addNoteBtn.classList.remove('addnote-btn-hover')
-            addNoteBtn.classList.add('addnote-btn')
+            setTimeout(() => {
+                addNoteBtn.classList.remove('addnote-btn-hover')
+                addNoteBtn.classList.add('addnote-btn')
+            }, 1500);
         }
         else {
             addNote(note.title, note.description, note.tag)
@@ -34,7 +36,6 @@ export const AddNote = (props) => {
     const handleOnChange = (e) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
-
 
     return (
         <div className='container my-3'>
