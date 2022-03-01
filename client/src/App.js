@@ -37,7 +37,7 @@ function App() {
           progress={progress}
         />
           <Routes>
-            <Route exact path="/" element={<Home setprogress={setProgress}/>} />
+            <Route exact path="/" element={<Home showAlert={showAlert} setprogress={setProgress} alert={alert}/>}  />
             <Route exact path="/about" element={<About setprogress={setProgress} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} setprogress={setProgress} alert={alert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} setprogress={setProgress} alert={alert} />} />

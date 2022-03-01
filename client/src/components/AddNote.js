@@ -1,20 +1,34 @@
 import React, { useState, useContext } from 'react'
 import noteContext from "../context/noteContext"
-
+import { Alert } from './Alert'
 export const AddNote = (props) => {
+    const {alert,showAlert}=props
+    const addNoteBtn = document.getElementById('btn-addNote')
     props.setprogress(0)
     const context = useContext(noteContext)
     const { addNote } = context;
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     const handleSubmit = (e) => {
+        addNoteBtn.classList.remove('addnote-btn')
+        addNoteBtn.classList.add('addnote-btn-hover')
         props.setprogress(10)
         e.preventDefault()
         props.setprogress(30)
-        addNote(note.title, note.description, note.tag)
-        props.setprogress(70)
-        setNote({ title: "", description: "", tag: "" })
-        props.setprogress(100)
+        if (note.title.length === 0 || note.description.length === 0) {
+            props.showAlert("Title or description cannot be empty")
+            props.setprogress(100)
+            addNoteBtn.classList.remove('addnote-btn-hover')
+            addNoteBtn.classList.add('addnote-btn')
+        }
+        else {
+            addNote(note.title, note.description, note.tag)
+            props.setprogress(70)
+            setNote({ title: "", description: "", tag: "" })
+            props.setprogress(100)
+            addNoteBtn.classList.remove('addnote-btn-hover')
+            addNoteBtn.classList.add('addnote-btn')
+        }
     }
 
     const handleOnChange = (e) => {
@@ -37,9 +51,10 @@ export const AddNote = (props) => {
                         <label htmlFor="tag" className="form-label">Tag:</label>
                         <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={handleOnChange} />
 
-                        <button id='btn-addNote' type="submit" disabled={note.title.length<0|| note.description.length<0} className='form-btn' onClick={handleSubmit}>Add Note</button>
+                        <button id='btn-addNote' type="submit" disabled={note.title.length < 0 || note.description.length < 0} className='addnote-btn' onClick={handleSubmit}>Add Note</button>
 
                     </form>
+                    <Alert alert={props.alert} />
                 </div>
             </div>
         </div>
