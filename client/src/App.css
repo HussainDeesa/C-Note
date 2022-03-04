@@ -2,7 +2,12 @@
 body {
   background-color: #001336;
 }
-
+.welcome-text{
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  margin-top: 10px;
+  font-family: 'Tangerine', cursive;}
 /* Navbar */
 .navbar {
   background-color: #191a19 !important;
@@ -218,4 +223,16 @@ i {
     margin-top: 10px;
     font-size: 13px;
   }
+  .log-sig-redirect{
+    font-size: 13px;
+  }
+  .welcome-text{
+    font-size: 40px ;
+  }
+}
+@media (max-width:350px) {
+  .alert{
+    font-size: 10px;
+  }
+  
 }

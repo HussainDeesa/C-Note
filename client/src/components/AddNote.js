@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import noteContext from "../context/noteContext"
 import { Alert } from './Alert'
 export const AddNote = (props) => {
-    const {alert,showAlert}=props
     const addNoteBtn = document.getElementById('btn-addNote')
     props.setprogress(0)
     const context = useContext(noteContext)

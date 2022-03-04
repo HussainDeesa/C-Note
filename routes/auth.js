@@ -70,7 +70,6 @@ router.post('/login', [
             success = false
             return res.status(400).json({success,errors: "Please enter correct credentials" })
         }
-
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
             success = false
@@ -86,7 +85,7 @@ router.post('/login', [
         res.json({ success, authToken })
     } catch (error) {
         console.error(error.message)
-        res.status(500).send("External Server Error Occured")
+        res.status(500).send("Internal Server Error Occured")
     }
 })
 
@@ -95,10 +94,10 @@ router.post('/getuser', fetchuser, async (req, res) => {
     try {
         const userId = req.user.id
         const user = await User.findById(userId).select('-password')
-        res.send(user)
+        res.json(user)
     } catch (error) {
         console.error(error.message)
-        res.status(500).send("Internal Server Error Occured")
+       return res.status(500).send("Internal Server Error Occured")
     }
 })
 
