@@ -159,7 +159,7 @@ body {
   font-weight: 600;
 }
 
-.modal-body input[type="text"] {
+.modal-body input[type="text"], .modal-body textarea[type="text"] {
   color: #001336;
   border-bottom: 2px solid black;
 }
