@@ -74,7 +74,7 @@ export const Notes = (props) => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="edescription" className="form-label">Description</label>
-                            <input type="text" value={note.edescription} className="form-control" id="edescription" name='edescription' onChange={handleOnChange} />
+                            <textarea style={{whitepace:" pre-wrap"}} type="text" value={note.edescription} className="form-control" id="edescription" name='edescription' onChange={handleOnChange} />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="etag" className="form-label">Tag</label>

@@ -47,7 +47,7 @@ export const AddNote = (props) => {
                         <label htmlFor="title" className="form-label">Title: </label>
                         <input type="text" className="form-control" id="title" value={note.title} name='title' onChange={handleOnChange} />
                         <label htmlFor="description" className="form-label">Description:</label>
-                        <input type="text" className="form-control" id="description" value={note.description} name='description' onChange={handleOnChange} />
+                        <textarea style={{whiteSpace:" pre-wrap"}} type="text" className="form-control" id="description" value={note.description} name='description' onChange={handleOnChange} />
                         <label htmlFor="tag" className="form-label">Tag:</label>
                         <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={handleOnChange} />
 

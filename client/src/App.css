@@ -2,12 +2,13 @@
 body {
   background-color: #001336;
 }
-.welcome-text{
+.welcome-text {
   color: white;
   text-align: center;
   font-size: 45px;
   margin-top: 10px;
-  font-family: 'Tangerine', cursive;}
+  font-family: "Tangerine", cursive;
+}
 /* Navbar */
 .navbar {
   background-color: #191a19 !important;
@@ -107,7 +108,9 @@ body {
   float: right;
   margin-top: 10px;
 }
-.form-btn,.addnote-btn,.addnote-btn-hover {
+.form-btn,
+.addnote-btn,
+.addnote-btn-hover {
   margin-top: 25px;
 }
 .your-notes-heading {
@@ -123,7 +126,7 @@ body {
 .log-sig-redirect a {
   color: #ffffff;
 }
-.addnote-btn-hover{
+.addnote-btn-hover {
   background-color: #fbff00;
   background-image: linear-gradient(315deg, #eaff00 0%, #b8fd13 74%);
   color: rgb(0 0 0);
@@ -133,9 +136,8 @@ body {
   border-radius: 3px;
   padding: 5px 2em;
   transition: 0.5s;
-
 }
-.addnote-btn{
+.addnote-btn {
   background: none;
   text-decoration: none;
   color: white;
@@ -143,7 +145,6 @@ body {
   border-radius: 3px;
   padding: 5px 2em;
   transition: 0.5s;
-
 }
 /* Edit Note */
 .modal-body {
@@ -189,7 +190,16 @@ body {
 .row {
   justify-content: center;
 }
-
+.tag-badge {
+  display: flex;
+  position: absolute;
+  right: 7px;
+  margin-top: -14px;
+}
+.tag-badge span{
+  background-color: #001336;
+  font-size: 13px;
+}
 /*  */
 .App {
   text-align: center;
@@ -221,18 +231,17 @@ i {
   }
   .alert {
     margin-top: 10px;
+    font-size: 12px;
+  }
+  .log-sig-redirect {
     font-size: 13px;
   }
-  .log-sig-redirect{
-    font-size: 13px;
-  }
-  .welcome-text{
-    font-size: 40px ;
+  .welcome-text {
+    font-size: 40px;
   }
 }
-@media (max-width:350px) {
-  .alert{
+@media (max-width: 350px) {
+  .alert {
     font-size: 10px;
   }
-  
 }

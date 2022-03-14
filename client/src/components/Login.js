@@ -47,7 +47,7 @@ const Login = (props) => {
                         <input type="email" value={crediantials.email} onChange={handleOnChange} className="form-control" id="email" aria-describedby="emailHelp" name='email' required />
                         <label htmlFor="password" className="form-label">Password</label>
                         <input type="password" value={crediantials.password} onChange={handleOnChange} className="form-control" id="password" name='password' required />
-                        <Link to="#" className='forgot'>Forgot?</Link>
+                        {/* <Link to="#" className='forgot'>Forgot?</Link> */}
                         <button type="submit" className="btn btn-primary form-btn">Login</button>
                     </form>
                     <Alert alert={props.alert} />
