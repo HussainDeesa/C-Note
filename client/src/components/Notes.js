@@ -5,6 +5,7 @@ import { AddNote } from './AddNote'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import { useNavigate } from "react-router-dom";
+import { Alert } from './Alert'
 
 export const Notes = (props) => {
     const {setprogress,showAlert,alert}=props
@@ -36,10 +37,17 @@ export const Notes = (props) => {
     const handleSubmit = (e) => {
         props.setprogress(10)
         e.preventDefault()
-        setShow(false)
         props.setprogress(50)
-        editNote(note.id, note.etitle, note.edescription, note.etag)
-        props.setprogress(100)
+        if (note.etitle.length === 0 || note.edescription.length === 0) {
+            props.showAlert("Title or description cannot be empty")
+            props.setprogress(100)
+        }
+        else {
+            editNote(note.id, note.etitle, note.edescription, note.etag)
+            setShow(false)
+            props.setprogress(70)
+            props.setprogress(100)
+        }
     }
 
     const handleOnChange = (e) => {
@@ -65,7 +73,7 @@ export const Notes = (props) => {
                     <Modal.Title>Edit Note</Modal.Title>
                 </Modal.Header>
                 <hr className='edit-modal-hr' />
-                <Modal.Body>
+                <Modal.Body showAlert={showAlert} >
                     <form className='my-3' >
                         <div className="mb-3">
                             <label htmlFor="etitle" className="form-label">Title</label>
@@ -80,7 +88,7 @@ export const Notes = (props) => {
                             <label htmlFor="etag" className="form-label">Tag</label>
                             <input type="text" value={note.etag} className="form-control" id="etag" name="etag" onChange={handleOnChange} />
                         </div>
-
+                        <Alert alert={props.alert}/>
                     </form></Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

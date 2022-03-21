@@ -200,6 +200,13 @@ body {
   background-color: #001336;
   font-size: 13px;
 }
+.tag-title{
+  margin-top: 14px;
+  display: flex;
+}
+.div-title{
+  display: flex;
+}
 /*  */
 .App {
   text-align: center;
