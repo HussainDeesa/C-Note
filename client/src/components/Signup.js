@@ -8,6 +8,7 @@ const Signup = (props) => {
     const [crediantials, setCrediantials] = useState({ name: "", email: "", password: "", cpassword: "" })
 
     const handleSubmit = async (e) => {
+        
         props.setprogress(10)
         if (crediantials.password === crediantials.cpassword) {
             e.preventDefault();

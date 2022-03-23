@@ -5,7 +5,7 @@ export const AddNote = (props) => {
     const addNoteBtn = document.getElementById('btn-addNote')
     props.setprogress(0)
     const context = useContext(noteContext)
-    const { addNote } = context;
+    const { addNote,getallnotes } = context;
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     const handleSubmit = (e) => {
@@ -23,7 +23,9 @@ export const AddNote = (props) => {
             }, 1500);
         }
         else {
-            addNote(note.title, note.description, note.tag)
+            addNote(note.title, note.description, note.tag).then(()=>{
+                getallnotes()
+            })
             props.setprogress(70)
             setNote({ title: "", description: "", tag: "" })
             props.setprogress(100)
