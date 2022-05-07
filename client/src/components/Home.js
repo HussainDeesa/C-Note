@@ -17,8 +17,10 @@ export default function Home(props) {
             },
         })
         const json = await response.json()
-        setUser(json.name)
-
+        let name=json.name
+        name=name.split(" ")
+        name=name[0]
+        setUser(name)
     };
     getuser()
     let time = new Date();
